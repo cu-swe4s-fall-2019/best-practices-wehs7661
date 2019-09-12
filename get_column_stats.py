@@ -31,7 +31,7 @@ def initialize():
 
     parser.add_argument('-c',
                         '--column_number',
-                        type=int,
+                        type=str,
                         help='The column number',
                         required=True)
 
@@ -50,7 +50,7 @@ def column_stats(data):
 
     Returns
     -------
-    mean: float
+    mean : float
         The mean of the given list of data
     std : float
         The standard deviation of the given list of data
@@ -66,14 +66,21 @@ def main():
     args = initialize()
 
     file_name = args.file_name
-    col_num = int(args.column_number)
+
+    # Make sure that the column number is an integer
+    col_num = None
+    try:
+        col_num = int(args.column_number)
+    except ValueError:
+        print('The column number should be an integer.')
+        sys.exit(1)
 
     # Open the file if it can be opened, or raise an error.
     f = None
     try:
         f = open(file_name, 'r')
     except FileNotFoundError:
-        print(file_name, 'does not exist.')
+        print('The file', file_name, 'does not exist.')
         sys.exit(1)
     except PermissionError:
         print('Could not open ' + file_name)
