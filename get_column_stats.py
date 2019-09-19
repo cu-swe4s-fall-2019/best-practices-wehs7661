@@ -35,8 +35,8 @@ def initialize():
                         help='The column number',
                         required=True)
 
-    args = parser   
-    # or we can return parser.parse_args() and use args = initialize() in the 
+    args = parser
+    # or we can return parser.parse_args() and use args = initialize() in the
     # main function instead
 
     return args
