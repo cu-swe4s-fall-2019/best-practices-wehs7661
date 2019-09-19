@@ -35,7 +35,9 @@ def initialize():
                         help='The column number',
                         required=True)
 
-    args = parser.parse_args()
+    args = parser
+    # or we can return parser.parse_args() and use args = initialize() in the
+    # main function instead
 
     return args
 
@@ -63,7 +65,7 @@ def column_stats(data):
 
 
 def main():
-    args = initialize()
+    args = initialize().parse_args(sys.argv[1:])   # sys.args[0]: program name
 
     file_name = args.file_name
 
