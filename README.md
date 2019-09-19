@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/cu-swe4s-fall-2019/best-practices-wehs7661.svg?branch=master)](https://travis-ci.com/cu-swe4s-fall-2019/best-practices-wehs7661)
+
 # Best Practices
 
 ## Description
